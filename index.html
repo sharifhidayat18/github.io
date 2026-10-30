@@ -136,7 +136,7 @@ a.u{color:var(--ink)}
 /* contact */
 .contact{margin-top:clamp(80px,12vw,160px);background:var(--deep);color:var(--deep-ink);padding:clamp(56px,9vw,128px) var(--pad) calc(32px + env(safe-area-inset-bottom,0px))}
 .contact h2{font-size:clamp(40px,7vw,112px);letter-spacing:-.05em;line-height:.92;margin-bottom:clamp(32px,5vw,64px);max-width:12ch}
-.links{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid color-mix(in srgb,var(--deep-ink) 25%,transparent);padding-top:24px}
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid color-mix(in srgb,var(--deep-ink) 25%,transparent);padding-top:24px}
 .links span{display:block;font-size:13px;opacity:.6;margin-bottom:6px}
 .links a{font-size:clamp(16px,1.4vw,20px);letter-spacing:-.01em;border-bottom:1px solid transparent;transition:border-color .2s;word-break:break-word}
 .links a:hover{border-color:currentColor}
@@ -193,7 +193,6 @@ dialog[open]{display:grid;grid-template-rows:auto 1fr;animation:fade .2s ease}
     <a href="#events">Events</a>
     <a href="#media">KOL &amp; media</a>
     <a href="#studio">Studio</a>
-    <a href="#instagram">Instagram</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -318,11 +317,6 @@ dialog[open]{display:grid;grid-template-rows:auto 1fr;animation:fade .2s ease}
   </section>
 
 
-  <section id="instagram">
-    <div class="sec-head"><h2>Instagram</h2><p>Latest work and stories, posted as it happens.</p></div>
-    <div class="ig-grid" id="ig-grid"></div>
-    <p class="ig-follow"><a href="https://www.instagram.com/neueor/" target="_blank" rel="noopener">Follow @neueor on Instagram</a></p>
-  </section>
 
   <section id="team">
     <div class="sec-head"><h2>Team</h2><p>How I structure a marketing department as head of marketing.</p></div>
@@ -338,7 +332,6 @@ dialog[open]{display:grid;grid-template-rows:auto 1fr;animation:fade .2s ease}
   <div class="links">
     <div><span>Email</span><a href="mailto:Sharifhidayatt@gmail.com">Sharifhidayatt@gmail.com</a></div>
     <div><span>WhatsApp</span><a href="https://wa.me/6287818111986" target="_blank" rel="noopener">+62 878 1811 1986</a></div>
-    <div><span>Instagram</span><a href="https://www.instagram.com/neueor/" target="_blank" rel="noopener">@neueor</a></div>
     <div><span>Resume</span><a href="https://drive.google.com/file/d/1Vb_Z4cDkLkCV0hmJTmrGXVNr-9kzuMIf/view?usp=sharing" target="_blank" rel="noopener">View resume (PDF)</a></div>
   </div>
   <div class="fine"><span>© <span id="y">2026</span> Sharif Hidayat</span><a href="#top">Back to top</a></div>
@@ -366,27 +359,6 @@ dialog[open]{display:grid;grid-template-rows:auto 1fr;animation:fade .2s ease}
   document.addEventListener('keydown',function(e){if(!lb.open)return;if(e.key==='ArrowRight')show(i+1);if(e.key==='ArrowLeft')show(i-1)});
   var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
   lb.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(d<0?i+1:i-1)});
-})();
-</script>
-<script>
-/* INSTAGRAM POSTS
-   Paste links to posts or reels from @neueor between the brackets, in quotes, separated by commas.
-   Example: "https://www.instagram.com/p/ABC123xyz/", "https://www.instagram.com/reel/DEF456uvw/"
-   Leave it empty and the section shows only the follow link. */
-var INSTAGRAM_POSTS = [];
-
-(function(){
-  var g=document.getElementById('ig-grid');
-  if(!INSTAGRAM_POSTS.length) return;
-  INSTAGRAM_POSTS.forEach(function(url){
-    var q=document.createElement('blockquote');
-    q.className='instagram-media';
-    q.setAttribute('data-instgrm-permalink',url.split('?')[0]);
-    q.setAttribute('data-instgrm-version','14');
-    var a=document.createElement('a');a.href=url;a.textContent='View this post on Instagram';a.target='_blank';a.rel='noopener';
-    q.appendChild(a);g.appendChild(q);
-  });
-  var s=document.createElement('script');s.async=true;s.src='https://www.instagram.com/embed.js';document.body.appendChild(s);
 })();
 </script>
 </body>
